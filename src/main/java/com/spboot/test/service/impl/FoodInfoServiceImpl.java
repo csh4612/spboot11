@@ -18,6 +18,8 @@ public class FoodInfoServiceImpl implements FoodInfoService {
 	
 	@Autowired
 	private FoodInfoRepository fiRepo;
+	
+	
 
 	@Override
 	public List<FoodInfo> getFoodInfos(FoodInfo foodInfo) {

@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.spboot.test.entity.CustomerInfo;
+import com.spboot.test.entity.FoodInfo;
 import com.spboot.test.repository.FileRepository;
 import com.spboot.test.repository.FoodInfoRepository;
 import com.spboot.test.service.FileService;
@@ -25,12 +27,19 @@ class SpbootApplicationTests {
 
 	@Test
 	void contextLoads() {
-		//List<FileInfo> fiList = fileService.getFileInfos(new FileInfo());
-		//log.info("fiList=>{}",fiList);
+		FoodInfo fi = new FoodInfo();
+		fi.setFiName("떡볶이");
+		fi.setFiPrice(4000);
+		fi.setFiType("분식");
+		fi.setFiDesc("떡볶이 맛있따");
+		CustomerInfo ci = new CustomerInfo();
+		log.info("ciNum=>{}",ci.getCuiNum());
+		ci.setCuiNum(1);
+		fi.setCustomerInfo(ci);
 		
-		//log.info("fiList=>{}",fileRepo.findAll());
+		fi = foodRepo.save(fi);
+		log.info("fi=>{}",fi);
 		
-		log.info("fiList=>{}",foodRepo.findAll());
 	}
 
 }

@@ -16,13 +16,14 @@
 				<th>가격</th>
 				<th>타입</th>
 				<th>설명</th>
-				<th>생성일</th>
-				<th>active</th>				
+				<th>등록일</th>
+				<th>등록자</th>				
 			</tr>
 		</thead>
 		<tbody id="tBody">
 		</tbody>
 	</table>
+	<button onclick="location.href='/views/food/food-info-insert'">음식등록</button>
 
 	<script>
 		window.onload = function() {
@@ -41,11 +42,12 @@
 						html += '<td>' + food.fiType + '</td>';
 						html += '<td>' + food.fiDesc + '</td>';
 						html += '<td>' + food.credat + '</td>';
-						html += '<td>' + food.active + '</td>';
+						html += '<td>' + food.customerInfo.cuiName + '</td>';
 						html += '</tr>'
 					}
+					document.querySelector('#tBody').innerHTML = html;
 				}
-				document.querySelector('#tBody').innerHTML = html;
+				
 			}
 			xhr.send();
 		}
